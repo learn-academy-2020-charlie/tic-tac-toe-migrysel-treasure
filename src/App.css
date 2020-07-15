@@ -3,3 +3,8 @@
   width: 100px;
   border: 2px solid black;
 }
+#gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+}
