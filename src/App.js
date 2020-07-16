@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Square from './components/Square'
 import './App.css'
+import background from './assets/background.jpg'
+import ghost from './assets/ghost.png'
+import pumpkin from './assets/pumpkin.png'
+
 //TIC TAC TOE
 class App extends Component{
   constructor(props){
@@ -24,13 +28,13 @@ class App extends Component{
   //[a,b,c] does a=x b=x c=x
   //add item in state for currentplayer in order to toggle between each player 
 
-handleClick = (index, value) => {
+handleClick = (index) => {
 let { squares, counter, gameEnded } = this.state
   if(gameEnded === false) {
   //user should be able to click on a square to mark it
   // counter.length < 5
   this.setState({squares: squares, counter: counter, gameEnded: gameEnded })
-  console.log(counter);
+  // console.log(counter);
   if(squares[index] === ""){
   //use a conditional using modulo to set odd and even player.
   if (counter % 2 === 0) {
@@ -54,8 +58,9 @@ let { squares, counter, gameEnded } = this.state
   // }
 
 // This calls the function that checks if there is a winner and assigns the return to a variable called result
+  if (counter > 4) {
   var result = this.checkWinner();
-
+  }
 // This if else tree will display the alert and end the game if there is a winner
   if(result === "X"){
     this.setState({ gameEnded : true })
@@ -83,13 +88,16 @@ checkWinner = () => {
     [0,4,8], 
     [2,4,6]]
   let { squares, counter } = this.state
+  //console.log(counter)
   for(let i=0;i<winningIndex.length;i++) {
-    if(squares[winningIndex[i][0]] === squares[winningIndex[i][1]] && squares[winningIndex[i][1]] === squares[winningIndex[i][2]])
+    if(squares[winningIndex[i][0]] !== "" && squares[winningIndex[i][0]] === squares[winningIndex[i][1]] && squares[winningIndex[i][1]] === squares[winningIndex[i][2]])
         return squares[winningIndex[i][0]];
   }
+  console.log(counter)
   if(counter === 8) {
     return "draw"
   }
+  //console.log(counter)
 }
 
 playAgain = () => {
