@@ -1,10 +1,27 @@
-#square{
+#root {
+  background-color: plum;
+}
+#square{ 
   height: 100px;
   width: 100px;
   border: 2px solid black;
+  background-color: purple;
+  text-align: center;
+  font-size: 100px;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #gameboard {
   display: flex;
   flex-wrap: wrap;
   width: 320px;
+  margin: auto;
+  justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: purple;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 90px;
 }
